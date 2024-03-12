@@ -4,7 +4,8 @@ namespace LoginChecker.Brokers.Storages
 {
     internal interface IStorageBroker
     {
+        Credential AddCredential(Credential credential);
         Credential[] GetAllCredentials();
-        Credential AddUser(Credential credential);
+        bool CheckUserLogin(Credential credential);
     }
 }

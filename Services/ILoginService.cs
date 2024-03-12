@@ -1,9 +1,10 @@
 ﻿using LoginChecker.Models;
 
-namespace LoginChecker.Services.LoginService
+namespace LoginChecker.Services
 {
     internal interface ILoginService
     {
-        LoginService CheckUserLogin(Credential credential);
+        Credential addCredential(Credential credential);
+        void CheckCredentialLogin(Credential credential);
     }
 }

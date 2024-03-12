@@ -4,8 +4,19 @@ namespace LoginChecker.Brokers.Loggings
 {
     internal class LoggingBroker : ILoggingBroker
     {
-        public void LogInformation(string message) => 
+        public void LogInformation(string message)
+        {
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
             Console.WriteLine(message);
+            Console.ResetColor();
+        }
+
+        public void LogSucces(string message)
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine(message);
+            Console.ResetColor();
+        }
 
         public void LogError(string userMessage)
         {

@@ -13,18 +13,48 @@ namespace LoginChecker.Brokers.Storages
             EnsureFileExists();
         }
 
-        private static Credential[] credentials = 
-        {
-            new Credential { UserName = "Asadbek", Password = "12345" },
-            new Credential { UserName = "Javlonbek", Password = "54321"}
-        };
-        public Credential[] GetAllCredentials() => credentials;
 
-        public Credential AddUser(Credential credential)
+        public Credential AddCredential(Credential credential)
         {
             string credentialLine = $"{credential.UserName}-{credential.Password}\n";
             File.AppendAllText(FilePath, credentialLine);
             return credential;
+        }
+
+        public Credential[] GetAllCredentials()
+        {
+            string[] credentialLines = File.ReadAllLines(FilePath);
+            int credentialLength = credentialLines.Length;
+            Credential[] credentials = new Credential[credentialLength];
+
+            for (int iterator = 0; iterator < credentialLength; iterator++)
+            {
+                string credentialLine = credentialLines[iterator];
+                string[] credentialProperties = credentialLine.Split("-");
+
+                Credential credential = new Credential
+                {
+                    UserName = credentialProperties[0],
+                    Password = credentialProperties[1]
+                };
+
+                credentials[iterator] = credential;
+            }
+
+            return credentials;
+        }
+
+        public bool CheckUserLogin(Credential credential)
+        {
+            foreach (Credential CredentialItem in GetAllCredentials())
+            {
+                if (credential.UserName == CredentialItem.UserName && credential.Password == CredentialItem.Password)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         private void EnsureFileExists()
