@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace LoginChecker.Models
+namespace UserManagement.Console.Models
 {
     internal class Credential
     {

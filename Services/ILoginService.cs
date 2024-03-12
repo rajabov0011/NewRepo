@@ -1,10 +1,11 @@
-﻿using LoginChecker.Models;
+﻿using UserManagement.Console.Models;
 
-namespace LoginChecker.Services
+namespace UserManagement.Console.Services
 {
     internal interface ILoginService
     {
         Credential addCredential(Credential credential);
         void CheckCredentialLogin(Credential credential);
+        void showCredentials()
     }
 }

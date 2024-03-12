@@ -1,8 +1,8 @@
-﻿using LoginChecker.Brokers.Loggings;
-using LoginChecker.Brokers.Storages;
-using LoginChecker.Models;
+﻿using UserManagement.Console.Brokers.Loggings;
+using UserManagement.Console.Brokers.Storages;
+using UserManagement.Console.Models;
 
-namespace LoginChecker.Services
+namespace UserManagement.Console.Services
 {
     internal class LoginService : ILoginService
     {
