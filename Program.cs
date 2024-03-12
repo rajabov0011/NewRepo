@@ -15,7 +15,7 @@ namespace UserManagement
             {
                 System.Console.Clear();
                 showMenu();
-                System.Console.Write("Choose >>> ")
+                System.Console.Write("Choose >>> ");
                 int myChoose = Convert.ToInt32(System.Console.ReadLine());
 
                 try
@@ -53,7 +53,7 @@ namespace UserManagement
                             break;
                     }
                 }
-                catch(Exception exception)
+                catch (Exception exception)
                 {
                     System.Console.WriteLine(exception.Message);
                 }
@@ -69,15 +69,15 @@ namespace UserManagement
                     }
                 }
 
-            } while (retry)
+            } while (retry);
 
             void showMenu()
             {
-                System.Console.WriteLine("\t-= Welcome to my project! =-")
-                System.Console.WriteLine("1. Sign Up")
-                System.Console.WriteLine("2. Log In")
-                System.Console.WriteLine("3. Exit")
-                System.Console.WriteLine("Which service do you want to use?")
+                System.Console.WriteLine("\t-= Welcome to my project! =-");
+                System.Console.WriteLine("1. Sign Up");
+                System.Console.WriteLine("2. Log In");
+                System.Console.WriteLine("3. Exit");
+                System.Console.WriteLine("Which service do you want to use?");
             }
         }
     }

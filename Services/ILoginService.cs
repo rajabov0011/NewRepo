@@ -6,6 +6,6 @@ namespace UserManagement.Console.Services
     {
         Credential addCredential(Credential credential);
         void CheckCredentialLogin(Credential credential);
-        void showCredentials()
+        void showCredentials();
     }
 }
