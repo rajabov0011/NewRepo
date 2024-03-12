@@ -1,6 +1,7 @@
 ﻿using UserManagement.Console.Brokers.Loggings;
 using UserManagement.Console.Brokers.Storages;
 using UserManagement.Console.Models;
+using System;
 
 namespace UserManagement.Console.Services
 {
@@ -15,7 +16,7 @@ namespace UserManagement.Console.Services
             this.loggingBroker = new LoggingBroker();
         }
 
-        public Credential addCredential(Credential credential)
+        public Credential AddCredential(Credential credential)
         {
             return credential is null
                 ? AddAndLogInvalidCredential()
@@ -34,21 +35,28 @@ namespace UserManagement.Console.Services
             }
         }
 
-        public void showCredentials()
+        public void ShowCredentials(Credential credential)
         {
-            Credential[] credentials = this.storageBroker.GetAllCredentials();
-
-            if (credentials.Length == 0)
+            if (storageBroker.CheckUserLogin(credential))
             {
-                this.loggingBroker.LogError("Credential is empty");
-                return;
-            }
-            foreach (Credential credential in credentials)
-            {
-                this.loggingBroker.LogInformation($"{credential.UserName}-{credential.Password}");
-            }
+                Credential[] credentials = this.storageBroker.GetAllCredentials();
 
-            this.loggingBroker.LogInformation("\t=== End of credentials ===");
+                if (credentials.Length == 0)
+                {
+                    this.loggingBroker.LogError("Credential is empty");
+                    return;
+                }
+                foreach (Credential credentialItem in credentials)
+                {
+                    this.loggingBroker.LogInformation($"{credentialItem.UserName}-{credentialItem.Password}");
+                }
+
+                this.loggingBroker.LogInformation("\t=== End of credentials ===");
+            }
+            else
+            {
+                this.loggingBroker.LogError("Unfortunately, you are not available in the list of users!");
+            }
         }
 
         private Credential ValidateAndAddCredential(Credential credential)
@@ -56,6 +64,12 @@ namespace UserManagement.Console.Services
             if (String.IsNullOrWhiteSpace(credential.UserName) || String.IsNullOrWhiteSpace(credential.Password))
             {
                 this.loggingBroker.LogError("User details missing");
+
+                return new Credential();
+            }
+            else if (storageBroker.CheckUserLogin(credential))
+            {
+                this.loggingBroker.LogError("User already exists, use another username");
 
                 return new Credential();
             }

@@ -6,30 +6,30 @@ namespace UserManagement.Console.Brokers.Loggings
     {
         public void LogInformation(string message)
         {
-            Console.ForegroundColor = ConsoleColor.DarkBlue;
-            Console.WriteLine(message);
-            Console.ResetColor();
+            System.Console.ForegroundColor = ConsoleColor.DarkBlue;
+            System.Console.WriteLine(message);
+            System.Console.ResetColor();
         }
 
         public void LogSucces(string message)
         {
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine(message);
-            Console.ResetColor();
+            System.Console.ForegroundColor = ConsoleColor.Green;
+            System.Console.WriteLine(message);
+            System.Console.ResetColor();
         }
 
         public void LogError(string userMessage)
         {
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine(userMessage);
-            Console.ResetColor();
+            System.Console.ForegroundColor = ConsoleColor.Red;
+            System.Console.WriteLine(userMessage);
+            System.Console.ResetColor();
         }
 
         public void LogError(Exception exception)
         {
-            Console.ForegroundColor = ConsoleColor.DarkRed;
-            Console.WriteLine(exception.Message);
-            Console.ResetColor();
+            System.Console.ForegroundColor = ConsoleColor.DarkRed;
+            System.Console.WriteLine(exception.Message);
+            System.Console.ResetColor();
         }
     }
 }

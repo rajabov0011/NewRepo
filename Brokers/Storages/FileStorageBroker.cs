@@ -13,7 +13,6 @@ namespace UserManagement.Console.Brokers.Storages
             EnsureFileExists();
         }
 
-
         public Credential AddCredential(Credential credential)
         {
             string credentialLine = $"{credential.UserName}-{credential.Password}\n";

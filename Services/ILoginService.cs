@@ -4,8 +4,8 @@ namespace UserManagement.Console.Services
 {
     internal interface ILoginService
     {
-        Credential addCredential(Credential credential);
+        Credential AddCredential(Credential credential);
         void CheckCredentialLogin(Credential credential);
-        void showCredentials();
+        void ShowCredentials(Credential credential);
     }
 }
