@@ -17,6 +17,7 @@ namespace UserManagement
                 showMenu();
                 System.Console.Write("Choose >>> ")
                 int myChoose = Convert.ToInt32(System.Console.ReadLine());
+
                 try
                 {
                     switch (myChoose)
@@ -51,22 +52,24 @@ namespace UserManagement
                             System.Console.WriteLine("Thanks, Bye!\n");
                             break;
                     }
-                    if (retry != 3)
-                    {
-                        System.Console.Write("\nDo you want to use other operations? [yes/no] >>>  ");
-                        if (System.Console.ReadLine() == "no")
-                        {
-                            retry = false;
-                            System.Console.Clear();
-                            System.Console.WriteLine("Thanks, Bye!\n");
-                        }
-                    }
                 }
                 catch(Exception exception)
                 {
                     System.Console.WriteLine(exception.Message);
                 }
-            }while (retry)
+
+                if (retry != 3)
+                {
+                    System.Console.Write("\nDo you want to use other operations? [yes/no] >>>  ");
+                    if (System.Console.ReadLine() == "no")
+                    {
+                        retry = false;
+                        System.Console.Clear();
+                        System.Console.WriteLine("Thanks, Bye!\n");
+                    }
+                }
+
+            } while (retry)
 
             void showMenu()
             {
@@ -76,7 +79,6 @@ namespace UserManagement
                 System.Console.WriteLine("3. Exit")
                 System.Console.WriteLine("Which service do you want to use?")
             }
-
         }
     }
 }
