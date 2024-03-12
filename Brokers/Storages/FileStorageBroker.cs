@@ -1,8 +1,8 @@
 ﻿using System;
 using System.IO;
-using LoginChecker.Models;
+using UserManagement.Console.Models;
 
-namespace LoginChecker.Brokers.Storages
+namespace UserManagement.Console.Brokers.Storages
 {
     internal class FileStorageBroker : IStorageBroker
     {

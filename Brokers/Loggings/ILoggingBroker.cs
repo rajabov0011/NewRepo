@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace LoginChecker.Brokers.Loggings
+namespace UserManagement.Console.Brokers.Loggings
 {
     internal interface ILoggingBroker
     {

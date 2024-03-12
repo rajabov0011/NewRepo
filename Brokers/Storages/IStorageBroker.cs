@@ -1,6 +1,6 @@
-﻿using LoginChecker.Models;
+﻿using UserManagement.Console.Models;
 
-namespace LoginChecker.Brokers.Storages
+namespace UserManagement.Console.Brokers.Storages
 {
     internal interface IStorageBroker
     {
